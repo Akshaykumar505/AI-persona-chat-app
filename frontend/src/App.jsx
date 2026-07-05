@@ -50,7 +50,7 @@ function App() {
   }, [isAdmin]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/personas')
+    fetch('https://ai-persona-chat-app.onrender.com/api/personas')
       .then((res) => res.json())
       .then((data) => setPersonas(data))
       .catch((err) => console.error('Error fetching personas:', err));
@@ -134,7 +134,7 @@ function App() {
         headers['Authorization'] = `Bearer ${authToken}`;
       }
 
-      const res = await fetch('http://localhost:5000/api/chat', {
+      const res = await fetch('https://ai-persona-chat-app.onrender.com/api/chat', {
         method: 'POST',
         headers,
         body: JSON.stringify({ persona: selectedPersona.id, messages: newMessages }),
